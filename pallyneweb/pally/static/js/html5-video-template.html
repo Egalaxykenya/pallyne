@@ -1,0 +1,65 @@
+<!-- This file is opened in iframe inside a lightbox overlay -->
+<!-- This helps in resolving the issue with displaying HTML5 video in lightbox in Google Chrome browser -->
+
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<title>HTML5 Video</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	
+	<style>
+		body, html { width: 100%; height: 100%; margin: 0; padding: 0; background-color: #f8f8f8; overflow: hidden; }
+		.html5-video-container { position: relative; max-width: 100%; }
+		.html5-video-container .player { position: absolute; left: 0; top: 0; width: 100%; height: 100%; }
+	</style>
+	
+	<script src="jquery.min.js"></script>
+	
+	<script>
+		var params = location.href.split('?')[1].split('&');
+		data = {};
+		for (x in params) {
+			data[params[x].split('=')[0]] = params[x].split('=')[1];
+		}
+		data.src = data.src.replace(/http:\/\//i, '');
+		data.src = data.src.replace(/www./i, '');
+		data.src = 'http://www.' + data.src; // setting the path for mp4 video different from the initial value
+		data.poster = '../' + data.poster;
+		
+		var $videoContainer = $('<div class="html5-video-container" data-aspect-ratio="' + data.w/data.h + '"> \
+									<video class="player" poster="' + data.poster + '" controls> \
+										<source src="' + data.src + '" type="video/mp4"> \
+									</video> \
+								</div>');
+		
+		jQuery(document).ready(function($) {
+			
+			$('body').prepend($videoContainer);
+			
+			var resizeContainer = function() {
+				$('.html5-video-container').each(function() {
+					var containerWidth = $(this).parent().width(),
+						containerHeight,
+						aspectRatio = $(this).attr('data-aspect-ratio');
+						
+					containerHeight = Math.floor(containerWidth/aspectRatio);
+					$(this).css({'width': containerWidth + 'px', 'height': containerHeight + 'px'});
+				});
+			};
+			
+			resizeContainer();
+			
+			$(window).on('resize', function() {
+				var timer = window.setTimeout(function() {
+					window.clearTimeout(timer);
+					resizeContainer();
+				}, 30);
+			});
+			
+		});
+	</script>
+	
+</head>
+
+<body></body>
+</html>

@@ -1,0 +1,363 @@
+{% extends 'pally/base.html' %}
+{% load staticfiles %}
+
+{% block pally_breadcrumb_block %}
+
+{% endblock %}
+{% block pally_body_block %}
+
+<section id="main">
+
+	<!-- Homepage Header -->
+	<header id="home-header">
+
+		<!-- Hero Content -->
+		<section id="home-hero-content">
+
+			<div class="container" id="home-hero"> <!-- 1080 pixels Container -->
+
+				<div class="full-width columns">
+
+					<div class="hero-image">
+						<section id="home-slider" class="flexslider right-side-nav">
+							<ul class="slides">
+								<li id="slide1">
+									<img src="{% static "images/banners/slide1.jpg" %}" alt="">
+								</li>
+								<li id="slide2">
+									<img src="{% static "images/banners/slide2.jpg" %}" alt="">
+								</li>
+								<li id="slide3">
+									<img src="{% static "images/banners/slide3-1220x450.jpg" %}" alt="">
+								</li>
+
+							</ul>
+						</section>
+					</div>
+
+				</div>
+
+			</div> <!-- end 1080 pixels Container -->
+
+			<div class="grid-gradient-bg"></div>
+
+		</section>
+
+		<!-- Hero Navigation -->
+		<section id="home-hero-nav">
+
+			<div class="container"> <!-- 1080 pixels Container -->
+
+				<div class="full-width columns">
+
+					<ul class="slider-menu clearfix">
+						<li class="active">
+							<a href="#slide1"><h6>Discover&nbsp;&nbsp;&nbsp;</h6></a>
+						</li>
+						<li>
+							<a href="#slide2"><h6>Learn&nbsp;&nbsp;&nbsp;</h6></a>
+						</li>
+						<li>
+							<a href="#slide3"><h6>Try it out!&nbsp;&nbsp;&nbsp;</h6></a>
+						</li>
+
+					</ul>
+
+				</div>
+
+			</div> <!-- end 1080 pixels Container -->
+
+		</section>
+
+		<!-- Intro -->
+		<section id="home-intro">
+
+			<div class="container"> <!-- 1080 pixels Container -->
+
+				<div class="full-width columns">
+
+					<div class="intro-wrapper">
+						<div class="intro-content clearfix">
+							<h1>Pallyne-Redefining learning</h1>
+
+							<!-- Preamble -->
+							<section class="preamble">
+								<p class="middle-font-size mb-10px">Pallyne offers learners with 10 min long video hacks on Artificial Intelligence.</p>
+								<p></p>
+								{% if request.user.is_authenticated %}
+
+								{% else %}
+								<ul class="brief-nav clearfix mb-15px">
+
+									<li><div class="mb-20px"><a href="#" class="button large light">Sign Up&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></div></li>
+
+									<li><div class="mb-20px"><a href="#" class="button large light">Login &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></div></li>
+
+								</ul>
+								{% endif %}
+
+							</section>
+
+						</div>
+					</div>
+
+				</div>
+
+			</div> <!-- end 1080 pixels Container -->
+
+		</section>
+
+	</header>
+	<!-- end Homepage Header -->
+
+	<!-- Featured Content -->
+	<section id="home-featured-content">
+
+		<div class="grid-bg">
+			<div class="container"> <!-- 1080 pixels Container -->
+				<div class="full-width columns mb-20px">
+
+					<div class="image-right adapted-max-767px width-280px offset-left-40px">
+						<div class="thumbnail-white">
+							<div class="video-preview" data-type="youtube-video">
+								<a href="http://youtu.be/Qd9z48Bo8ZA?width=720&amp;height=405" data-rel="prettyPhoto" title="What is Pallyne?">
+									<img src="{% static "images/feature2-420x236.jpg" %}" alt="">
+									<div class="overlay"><span class="play-icon"></span></div>
+								</a>
+							</div>
+						</div>
+					</div>
+					<h3 class="grey mb-5px">Just like for medicine to be efficient, its given in small doses so should learning</h3>
+					<p>We believe in making learning to be fun through small doses of short videos that are quite engaging</p>
+					<a href="history.html" class="link-lg black">Read the full story<span></span></a>
+
+				</div>
+			</div>
+		</div>
+
+	</section>
+
+	<!-- Page Content -->
+	<section id="page-content">
+
+		<div class="container"> <!-- 1080 pixels Container -->
+
+			<div class="row">
+
+				<section class="width-two-thirds align-left adapted-max-767px mb-40px">
+
+					<div class="two-thirds columns">
+
+						<h5 class="underlined dashed uppercase colored-text-pale mb-30px">What Pallyne Offers</h5>
+
+					</div>
+					<div class="clear"></div>
+
+					<!-- Feature Boxes with left icon (small size) -->
+					<section class="feature-boxes medium-col-space left-icon-box small-icon">
+
+						<div class="row">
+
+							<div class="one-third columns">
+								<article>
+									<span class="colored-background-2">
+										<i class="fa fa-film"></i>
+									</span>
+									<div>
+										<h5>Engaging e-learning Videos</h5>
+										<p>A multiple range of e-learning videos on machine learning</p>
+									</div>
+								</article>
+							</div>
+
+							<div class="one-third columns">
+								<article>
+									<span class="colored-background-2">
+										<i class="fa fa-archive"></i>
+									</span>
+									<div>
+										<h5>Wide Range of Datasets</h5>
+										<p>A collection of clean image datasets for your image recognition tasks</p>
+									</div>
+								</article>
+							</div>
+
+						</div>
+
+						<div class="row">
+
+							<div class="one-third columns">
+								<article>
+									<span class="colored-background-2">
+										<i class="fa fa-book"></i>
+									</span>
+									<div>
+										<h5>Books and Reference Materials</h5>
+										<p>We point you to the right sources for detailed materials</p>
+									</div>
+								</article>
+							</div>
+
+							<!--<div class="one-third columns">
+								<article>
+									<span class="colored-background-2">
+										<i class="fa fa-google-plus"></i>
+									</span>
+									<div>
+										<h5>Working HTML Forms</h5>
+										<p>Fully functional contact, comment, and subscription forms (Ajax + PHP).</p>
+									</div>
+								</article>
+							</div> -->
+
+						</div>
+
+
+
+					</section>
+					<!-- end Feature Boxes -->
+
+				</section> <!-- end width-two-thirds section -->
+
+				<aside class="width-one-third align-right adapted-max-767px mb-50px">
+					<div class="offset-left-30px offset-right-10px">
+
+						<div class="info-box light">
+							<h4 class="grey">Consulting competition</h4>
+							<p class="light-grey">Suspendisse ut eros consequat augue commodo et luctus vivamus arcu in arcu mollis consectetur mauris. Curabitur porta risus eu lorem tempus vitae sodales ante mollis tincidunt vulputate a cursus imperdiet, felis tortor interdum non viverra justo libero dignissim pellentesque&#8230;<a href="#" class="italic">Read more</a></p>
+						</div>
+
+					</div>
+				</aside>
+
+			</div>
+
+		</div> <!-- end 1080 pixels Container -->
+
+
+
+		<div class="container"> <!-- 1080 pixels Container -->
+
+
+
+			<div class="full-width columns">
+				<h5 class="underlined dashed uppercase colored-text-pale mb-20px">Our Recent e-learning Videos <span class="headline-link"><a href="portfolio-2-columns.html" class="italic">View all</a></span></h5>
+			</div>
+			<div class="clear"></div>
+
+
+			<!-- Portfolio Items -->
+			<div id="portfolio-wrapper" class="small-col-space clearfix mb-10px">
+				{% if recentvideos %}
+
+					{% for video in recentvideos %}
+
+				<!-- 1/4 page width -->
+				<div class="one-fourth columns portfolio-item-preview">
+					<article>
+						<div class="item-picture" data-type="link">
+							<img src="{{ video.content_imageicon.url }}" alt="">
+							<div class="image-overlay">
+								<a href="/pally/viewvideo/{{ video.slug }}" title="{{ video.content_title }}"><span class="link"></span></a>
+							</div>
+						</div>
+						<div class="item-description align-center">
+							<a href="/pally/viewvideo/{{ video.slug }}"><h6 class="title colored-text-1">{{ video.content_title }}</h6></a>
+							<p class="small-font-size">Publisher : {{ video.content_publisher }} </p>
+						</div>
+					</article>
+				</div>
+				{% endfor %}
+				{% else %}
+				<strong> There are no recently uploaded videos </strong>
+				{% endif %}
+
+
+
+			</div>
+			<!-- end Portfolio Items -->
+
+			<!-- Begin Pricing Plan -->
+			<div class="full-width columns">
+				<h5 class="underlined dashed uppercase colored-text-pale mb-20px">Our Pricing Plans </h5>
+			</div>
+			<div class="clear"></div>
+			<!-- /// Basic Pricing Table: 3 columns /// -->
+
+				<div class="pricing-table basic three-cols clearfix">
+
+					<!-- table column -->
+					<!-- Add 'short' class to DIV.header for all columns if you don't use the description subtext -->
+					<div class="table-column">
+						<div class="header">
+							<h4 class="title">Standard</h4>
+							<span class="description">Trial Plan</span>
+							<h3 class="price">$0<span> /month</span></h3>
+						</div>
+						<ul class="features small-font-size">
+							<li>Upto 20 Learning Videos</li>
+							<li>Upto 500 Free Image Datasets</li>
+							<li>Reference Books Previews</li>
+							<li> - </li>
+							<li> - </li>
+
+						</ul>
+						<div class="footer">
+							<a href="#" class="button medium">Sign Up</a>
+						</div>
+					</div>
+					<!-- end column -->
+
+					<!-- table column featured -->
+					<div class="table-column featured">
+						<div class="header">
+							<h4 class="title">Premium</h4>
+							<span class="description">Best for Individuals</span>
+							<h3 class="price">$25<span> /month</span></h3>
+						</div>
+						<ul class="features small-font-size">
+							<li data-tooltip="Optional description of the feature can go here!">Upto 100 Learning Videos</li>
+							<li data-tooltip="Optional description of the feature can go here!">Upto 1400 Image Datasets</li>
+							<li data-tooltip="Optional description of the feature can go here!">Reference Books Previews</li>
+							<li data-tooltip="Optional description of the feature can go here!">Job Postings Access</li>
+							<li data-tooltip="Optional description of the feature can go here!"> Billed Quarterly </li>
+
+
+						</ul>
+						<div class="footer">
+							<a href="#" class="button medium">Sign Up</a>
+						</div>
+					</div>
+					<!-- end column -->
+
+					<!-- table column -->
+					<div class="table-column">
+						<div class="header">
+							<h4 class="title">Corporate Plan</h4>
+							<span class="description">Best For Companies</span>
+							<h3 class="price">$150<span> /month</span></h3>
+						</div>
+						<ul class="features small-font-size">
+							<li>Unlimited Learning Videos</li>
+							<li>Unlimited Image Datasets</li>
+							<li>Unlimited Reference Books Access</li>
+							<li>Unlimited Job Postings</li>
+							<li> Billed Yearly </li>
+
+						</ul>
+						<div class="footer">
+							<a href="#" class="button medium">Sign Up</a>
+						</div>
+					</div>
+					<!-- end column -->
+
+				</div>
+				<!-- end Table -->
+
+		</div> <!-- end 1080 pixels Container -->
+
+	</section>
+	<!-- end Page Content -->
+
+</section>
+{% endblock %}
