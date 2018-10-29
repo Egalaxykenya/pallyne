@@ -66,10 +66,10 @@
 
 						</li>
 
-						<li><a href="#">Dashboard</a>
+						<li><a href="{% url 'dashboard' %}">Dashboard</a>
 						</li>
 
-						<li><a href="#">Hello {{ request.user }} | Logout</a>
+						<li><a href="{% url 'logout' %}">Hello {{ request.user }} | Logout</a>
 
 						</li>
 
@@ -82,10 +82,10 @@
 
 						</li>
 
-						<li><a href="#">Sign Up</a>
+						<li><a href="{% url 'register' %}">Sign Up</a>
 						</li>
 
-						<li><a href="#">Login</a>
+						<li><a href="{% url 'login' %}">Login</a>
 
 						</li>
 

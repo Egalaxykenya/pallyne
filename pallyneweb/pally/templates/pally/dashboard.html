@@ -1,0 +1,91 @@
+{% extends 'pally/base.html' %}
+
+{% load staticfiles %}
+
+{% block pally_breadcrumb_block %}
+
+{% endblock %}
+
+{% block pally_body_block %}
+
+<!-- Page Content -->
+<section id="page-content">
+
+  <div class="container"> <!-- 1080 pixels Container -->
+
+    <div class="row">
+
+      <div class="one-third fixed columns align-right mb-40px mb-max-767px"> <!-- right-aligned column -->
+
+        <ul class="feature-nav width-350px align-left adapted-max-767px offset-right-30px mb-40px">
+            <li>
+              <a href="{% url 'pallynevideos' %}">
+                <span><i class="fa fa-film"></i></span>
+                <div>
+                  <h5 class="uppercase remove-bottom">learning videos</h5>
+                  <p class="italic remove-bottom">Access learning videos</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="{% url 'pallynedatasets' %}">
+                <span><i class="fa fa-archive"></i></span>
+                <div>
+                  <h5 class="uppercase remove-bottom">datasets</h5>
+                  <p class="italic remove-bottom">Access uploaded datasets</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="{% url 'pallynebooks' %}">
+                <span><i class="fa fa-book"></i></span>
+                <div>
+                  <h5 class="uppercase remove-bottom">books</h5>
+                  <p class="italic remove-bottom">Preview reference books</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span><i class="fa fa-user"></i></span>
+                <div>
+                  <h5 class="uppercase remove-bottom">My Profile</h5>
+                  <p class="italic remove-bottom">Edit or Update Profile</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="{% url 'pallynebooks' %}">
+                <span><i class="fa fa-book"></i></span>
+                <div>
+                  <h5 class="uppercase remove-bottom">books</h5>
+                  <p class="italic remove-bottom">Preview reference books</p>
+                </div>
+              </a>
+            </li>
+          </ul>
+        <!-- end side menu -->
+
+
+      </div>
+
+      <div class="two-thirds adaptive-to-fixed columns">
+
+         <div class="contact-form-wrapper">
+
+          <h3>Dashboard</h3>
+            <div class="small-bar colored"></div>
+          <p> Welcome to pallyne! You can <a href="{% url 'editprofile' %}">  Edit your profile </a>  or <a href="{%url 'password_reset' %}"> Change your password</a> </p>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+<!-- end 1080 pixels Container -->
+
+
+</section>
+{% endblock %}

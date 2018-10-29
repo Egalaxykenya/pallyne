@@ -1,0 +1,54 @@
+{% extends 'pally/base.html' %}
+
+{% load staticfiles %}
+
+{% block pally_breadcrumb_block %}
+
+
+{% endblock %}
+
+{% block pally_body_block %}
+
+<!-- Page Content -->
+<section id="page-content">
+
+  <div class="container"> <!-- 1080 pixels Container -->
+
+    <div class="row">
+
+      <div class="one-third fixed columns align-right mb-40px mb-max-767px"> <!-- right-aligned column -->
+        {% include 'pally/sidemenu.html' %}
+        <!-- end side menu -->
+
+
+      </div>
+
+      <div class="two-thirds adaptive-to-fixed columns">
+
+         <div class="contact-form-wrapper">
+
+
+          <h3>Edit your account profile</h3>
+            <div class="small-bar colored"></div>
+          <p>  {% include 'pally/pallynemessages.html' %} </p>
+          <div>
+          <form action="." method="post"  class="form" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ pally_user_form.as_p }}
+            {{ pally_learner_profile_form.as_p }}
+            <p> <input type="submit" value="Save Changes"></p>
+          </form>
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+<!-- end 1080 pixels Container -->
+
+
+</section>
+{% endblock %}

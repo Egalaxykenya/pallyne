@@ -1,0 +1,123 @@
+{% extends 'pally/base.html' %}
+{% load staticfiles %}
+
+{% block pally_breadcrumb_block %}
+{{ block.super }}
+{% endblock %}
+{% block pally_body_block %}
+<!-- Page Content -->
+<section id="main">
+<section id="page-content">
+
+  <div class="container"> <!-- 1080 pixels Container -->
+
+    <div class="row">
+
+      <div class="two-thirds columns">
+        <div class="offset-right-20px">
+
+          <!-- Datasets -->
+          <div class="announcements mb-40px">
+            {% if datasets %}
+              {% for dataset in datasets %}
+
+            <article class="clearfix">
+              <a href="#"><img src="{{ dataset.content_imageicon.url }}" alt="" style="width:135px;height:135px;"></a>
+              <div class="preview-text">
+                <h6 class="title">{{ dataset.content_title }}</h6>
+                <p>{{ dataset.content_description }}</p>
+                <span class="light-grey">{{ dataset.published_date }}</span>
+                <a href="{{dataset.dataset_download.url }}"><span class="light-grey"><i class="fa fa-download fa-fw"></i> Download</span> </a>
+              </div>
+            </article>
+            {% endfor %}
+            {% else %}
+            <strong> There are no available datasets </strong>
+          {% endif %}
+
+             <article class="clearfix">
+              <a href="#"><img src="{% static "images/post2-preview-135x90.jpg" %}" alt=""></a>
+              <div class="preview-text">
+                <h6 class="title">Stay up-to-date with our research program</h6>
+                <p>Morbi lectus orci, elementum quis accumsan sodales. Nunc euismod nulla nec mauris pellentesque id porttitor felis mi dolor justo, sed aliquet ligula.</p>
+                <span class="light-grey">Added December 18, 2013</span>
+                <a href="#"><span class="light-grey"><i class="fa fa-download fa-fw"></i> Download</span> </a>
+              </div>
+            </article>
+
+            <article class="clearfix">
+              <a href="#"><img src="{% static "images/post3-preview-135x90.jpg" %}" alt=""></a>
+              <div class="preview-text">
+                <h6 class="title">Road Traffic Lights Dataset</h6>
+                <p>Nulla vitae libero, a pharetra augue vivamus sagittis aptent taciti ad litora mauris molestie nisi dignissim, lobortis placerat ac massa justo sit amet risus.</p>
+                <span class="light-grey">Added December 18, 2013</span>
+                <a href="#"><span class="light-grey"><i class="fa fa-download fa-fw"></i> Download</span> </a>
+              </div>
+            </article>
+
+          </div>
+          <!-- end datasets -->
+
+        </div>
+      </div>
+      <div class="one-fourth columns  mb-40px"> <!-- Begin right-aligned column -->
+          {% include 'pally/sidemenu.html' %}
+
+      </div>
+      <!-- end side menu -->
+
+      <aside class="one-third columns">
+
+        <div class="info-box mb-30px">
+          <h4 class="mb-15px">Top dataset downloads</h4>
+
+          <!-- begin top datasets -->
+          <div class="announcements mb-25px">
+            <article class="clearfix">
+              <a href="#"><img src="{% static "images/post1-preview-70x70.jpg" %}" alt=""></a>
+              <div class="preview-text">
+                <a href="#"><p class="title tight black">Japanese Coins dataset</p></a>
+                <span class="light-grey">Downloads: 30</span>
+              </div>
+            </article>
+            <article class="clearfix">
+              <a href="#"><img src="{% static "images/post2-preview-70x70.jpg" %}" alt=""></a>
+              <div class="preview-text">
+                <a href="#"><p class="title tight black">Hand Sign Dataset</p></a>
+                <span class="light-grey">Downloads: 20</span>
+              </div>
+            </article>
+            <article class="clearfix">
+              <a href="#"><img src="{% static "images/post3-preview-70x70.jpg" %}" alt=""></a>
+              <div class="preview-text">
+                <a href="#"><p class="title tight black">Road Traffic light dataset</p></a>
+                <span class="light-grey">Downloads: 10</span>
+              </div>
+            </article>
+          </div>
+          <!-- end top datasets -->
+
+        </div>
+
+      </aside>
+
+    </div>
+    <!-- Start Pagination -->
+    <div class="full-width columns">
+      <hr class="divider-line mb-25px">
+      <nav class="pagination clearfix">
+        <span class="current">1</span>
+        <a href="#" title="Page 2">2</a>
+        <span class="pages">Page 1 of 2</span>
+      </nav>
+    </div>
+    <!-- End Pagination -->
+
+
+  </div> <!-- end 1080 pixels Container -->
+
+</section>
+</section>
+<!-- end Page Content -->
+
+{% endblock %}

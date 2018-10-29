@@ -1,0 +1,313 @@
+{% extends 'pally/base.html' %}
+
+{% load staticfiles %}
+
+{% block pally_breadcrumb_block %}
+
+{% endblock %}
+
+{% block pally_body_block %}
+<!-- Page Content -->
+<section id="page-content">
+
+  <div class="container"> <!-- 1080 pixels Container -->
+
+    <!-- Headline -->
+    <section class="headline clearfix">
+
+      <div class="two-thirds columns">
+        <h3>{{ video.content_title }}</h3>
+      </div>
+
+      <div class="one-third columns">
+        <div>
+
+          <span class="small-font-size light-grey"><a href="{% url 'pally:pallynevideos' %}"><em>Back to Other Videos</em></a></span>
+        </div>
+      </div>
+
+    </section>
+
+    <div class="full-width columns">
+      <hr class="divider-line colored mb-25px">
+      {{ video.content_imageicon.url }}
+    </div>
+    <div class="clear"></div>
+
+    <!-- Single Item Details -->
+    <section class="single-item-details clearfix">
+
+      <!-- Load Video Media Box -->
+      <div class="two-thirds columns">
+        <div class="html5-video-container" data-aspect-ratio="1.77778"><!-- video aspect ratio - 16/9 -->
+          <video class="player" poster="{{ video.content_imageicon.url }}" controls>
+            <source src="{{ video.video_url }}" type="video/mp4">
+            <!-- <source src="http://e-merald.com/themes/_media/taste-lab-1280x720.webm" type="video/webm">
+            <source src="http://e-merald.com/themes/_media/taste-lab-960x540.ogv" type="video/ogg"> -->
+          </video>
+        </div>
+
+      </div>
+
+      <!-- Info Board -->
+      <div class="one-third columns">
+
+        <div class="extra-content">
+            {% include 'pally/sidemenu.html' %}
+
+            <ul class="feature-nav width-350px align-left adapted-max-767px offset-right-30px mb-40px">
+              <li>
+                <a href="{% url 'pally:pallynevideos' %}">
+                  <span><i class="fa fa-film"></i></span>
+                  <div>
+                    <h5 class="uppercase remove-bottom">learning videos</h5>
+                    <p class="italic remove-bottom">Access learning videos</p>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'pally:pallynedatasets' %}">
+                  <span><i class="fa fa-archive"></i></span>
+                  <div>
+                    <h5 class="uppercase remove-bottom">datasets</h5>
+                    <p class="italic remove-bottom">Access uploaded datasets</p>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'pally:pallynebooks' %}">
+                  <span><i class="fa fa-book"></i></span>
+                  <div>
+                    <h5 class="uppercase remove-bottom">books</h5>
+                    <p class="italic remove-bottom">Preview reference books</p>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <span><i class="fa fa-user"></i></span>
+                  <div>
+                    <h5 class="uppercase remove-bottom">My Profile</h5>
+                    <p class="italic remove-bottom">Edit or Update Profile</p>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <span><i class="fa fa-book"></i></span>
+                  <div>
+                    <h5 class="uppercase remove-bottom">books</h5>
+                    <p class="italic remove-bottom">Preview reference books</p>
+                  </div>
+                </a>
+              </li>
+            </ul>
+
+
+        </div>
+      </div>
+
+
+
+      <!-- Text Description -->
+      <div class="two-thirds columns">
+        <div class="text-description white-bg">
+
+          <h3>Description </h3>
+          <p class="mb-30px">{{ video.content_description }} </p>
+
+          <!-- Tabs -->
+          <ul class="tabs-nav uppercase bordered clearfix">
+            <li class="active"><a href="#tab1">Overview</a> </li>
+            <li><a href="#tab2">Trial Data Sets</a></li>
+            <li><a href="#tab3">Reference Books</a></li>
+            <li><a href="#tab4"> Video Script </a></li>
+          </ul>
+
+          <div class="tabs-container bordered">
+
+            <!-- Tab 1 content -->
+            <div id="tab1" class="tab-content">
+              <ul class="arrow-list colored data margin-left-small remove-bottom">
+                <li><strong>Publisher:</strong> Pallyne</li>
+                <li><strong>Length:</strong> 10 min</li>
+                <li><strong>Intensity:</strong> Beginner</li>
+                <li><strong>Applicable Industrial Areas:</strong> Data Science</li>
+
+              </ul>
+            </div>
+
+            <!-- Tab 2 content -->
+            <div id="tab2" class="tab-content">
+
+              <div class="announcements mb-40px">
+
+                <article class="clearfix">
+                  <a href="#"><img src="{% static "images/post1-preview-135x90.jpg" %}" alt=""></a>
+                  <div class="preview-text">
+                    <h6 class="title">Japanese Coin data sets</h6>
+                    <p>Vestibulum id ligula porta felis euismod semper alidi dolor id nibh ultricies vehicula ut id elit tincidunt lacinia justo.</p>
+                    <span class="light-grey">Added December 18, 2013</span>
+                    <a href="#"><span class="light-grey"><i class="fa fa-download fa-fw"></i> Download</span> </a>
+                  </div>
+                </article>
+
+                <article class="clearfix">
+                  <a href="#"><img src="{% static "images/post2-preview-135x90.jpg" %}" alt=""></a>
+                  <div class="preview-text">
+                    <h6 class="title">Stay up-to-date with our research program</h6>
+                    <p>Morbi lectus orci, elementum quis accumsan sodales. Nunc euismod nulla nec mauris pellentesque id porttitor felis mi dolor justo, sed aliquet ligula.</p>
+                    <span class="light-grey">Added December 18, 2013</span>
+                    <a href="#"><span class="light-grey"><i class="fa fa-download fa-fw"></i> Download</span> </a>
+                  </div>
+                </article>
+
+                <article class="clearfix">
+                  <a href="#"><img src="{% static "images/post3-preview-135x90.jpg" %}" alt=""></a>
+                  <div class="preview-text">
+                    <h6 class="title">Road Traffic Lights Dataset</h6>
+                    <p>Nulla vitae libero, a pharetra augue vivamus sagittis aptent taciti ad litora mauris molestie nisi dignissim, lobortis placerat ac massa justo sit amet risus.</p>
+                    <span class="light-grey">Added December 18, 2013</span>
+                    <a href="#"><span class="light-grey"><i class="fa fa-download fa-fw"></i> Download</span> </a>
+                  </div>
+                </article>
+
+              </div>
+
+
+            </div>
+
+            <!-- Tab 3 content -->
+            <div id="tab3" class="tab-content clearfix">
+
+                <div class="width-350px image-left adapted-max-767px remove-bottom">
+                  <img src="{% static "images/feature5-420x236.jpg" %}" alt="" class="scale-with-grid">
+                </div>
+                <div class="offset-right-10px">
+                  <h5 class="colored-text-1">Practical Python Projects</h5>
+                  <p> Authors: Jon Rugunda</p>
+                  <div class="mb-20px"><a href="#" class="button dark">Preview Book</a></div>
+                  <a href="#" class="link-sm colored-text-2">Buy This Book <span></span></a>
+                </div>
+
+              </div>
+
+            <!-- Tab 4 content -->
+            <div id="tab4" class="tab-content">
+              Aliquam dignissim lorem ac leo egestas pellentesque. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In ultrices magna non sapien varius sollicitudin. Pellentesque tincidunt lacinia justo, ac convallis turpis rhoncus ut. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+            </div>
+
+          </div>
+          <!-- end Tabs -->
+
+          <!-- Social share -->
+          <ul class="social-share clearfix mb-15px">
+            <li class="google">
+              <div class="g-plusone" data-size="medium"></div>
+              <script type="text/javascript">
+                (function() {
+                  if (document.querySelector('html').className.split(' ')[1] != 'ie8') {
+                    var po = document.createElement('script');
+                    po.type = 'text/javascript';
+                    po.async = true;
+                    po.src = 'https://apis.google.com/js/plusone.js';
+                    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                  }
+                })();
+              </script>
+            </li>
+            <li class="twitter">
+              <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+              <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+            </li>
+            <li class="facebook">
+              <div id="fb-root"></div>
+              <script>
+                (function(d, s, id) {
+                  var js, fjs = d.getElementsByTagName(s)[0];
+                  if (d.getElementById(id)) return;
+                  js = d.createElement(s); js.id = id;
+                  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+                  fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));
+              </script>
+              <div class="fb-like" data-href="http://e-merald.com/themes/emerix/single-project.html" data-width="125" data-layout="button_count" data-show-faces="false" data-send="false"></div>
+            </li>
+            <li class="pinterest">
+              <a href="//www.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark"><img src="//assets.pinterest.com/images/pidgets/pin_it_button.png" alt=""></a>
+              <script type="text/javascript">
+                (function (w, d, load) {
+                  var script, first = d.getElementsByTagName('SCRIPT')[0], n = load.length, i = 0, go = function () {
+                    for (i = 0; i < n; i = i + 1) {
+                      script = d.createElement('SCRIPT');script.type = 'text/javascript';script.async = true; script.src = load[i];first.parentNode.insertBefore(script, first);
+                    }
+                  }
+                  if (w.attachEvent) { w.attachEvent('onload', go); } else { w.addEventListener('load', go, false); }
+                }(window, document, ['//assets.pinterest.com/js/pinit.js']));
+              </script>
+            </li>
+          </ul>
+          <!-- end Social share -->
+
+        </div>
+      </div>
+
+      <!-- Extra Content -->
+      <div class="one-third columns">
+        <div class="extra-content">
+
+          <hr class="divider-line colored mb-25px">
+          <h5 class="align-center mb-20px">Related learning Videos</h5>
+
+          <!-- Portfolio Items -->
+          <div id="portfolio-wrapper" class="small-col-space clearfix">
+
+            <!-- 1/4 page width -->
+            <div class="one-fourth columns portfolio-item-preview">
+              <article>
+                <div class="item-picture" data-type="link">
+                  <img src="{% static "images/portfolio/img4-380x238.jpg" %}" alt="">
+                  <div class="image-overlay">
+                    <a href="single-project-2.html" title="Real Estate News"><span class="link"></span></a>
+                  </div>
+                </div>
+                <div class="item-description align-center">
+                  <a href="single-project-2.html"><h6 class="title colored-text-1">Installing Scikit</h6></a>
+                  <p class="small-font-size">Data Science</p>
+                </div>
+              </article>
+            </div>
+
+            <!-- 1/4 page width -->
+            <div class="one-fourth columns portfolio-item-preview">
+              <article>
+                <div class="item-picture" data-type="link">
+                  <img src="{% static "images/portfolio/img6-380x238.jpg" %}" alt="">
+                  <div class="image-overlay">
+                    <a href="single-project-3.html" title="Website and Mobile Analytics"><span class="link"></span></a>
+                  </div>
+                </div>
+                <div class="item-description align-center">
+                  <a href="single-project-3.html"><h6 class="title colored-text-1">Getting to Know Anaconda</h6></a>
+                  <p class="small-font-size">Data Science</p>
+                </div>
+              </article>
+            </div>
+
+          </div>
+          <!-- end Portfolio Items -->
+
+        </div>
+      </div>
+
+    </section>
+    <!-- end Single Item Details -->
+
+  </div>
+
+</section>
+<!-- end Page Content -->
+
+
+
+{% endblock %}

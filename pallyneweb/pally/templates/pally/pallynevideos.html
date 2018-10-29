@@ -1,0 +1,90 @@
+{% extends 'pally/base.html' %}
+
+{% load staticfiles %}
+
+{% block pally_breadcrumb_block %}
+{{ block.super }}
+
+{% endblock %}
+
+{% block pally_body_block %}
+<section id="main">
+
+
+	<!-- Page Content -->
+	<section id="page-content" class="sidebar-layout">
+
+		<div class="container"> <!-- 1080 pixels Container -->
+
+			<!-- Content with right-aligned Sidebar -->
+			<div class="columns-wrapper sb-right">
+
+				<!-- Page Left Column -->
+				<section id="main-content" class="three-fourths columns page-left-col"> <!-- inner grid 780 pixels wide -->
+
+					<!-- Portfolio Items -->
+					<div id="portfolio-wrapper" class="medium-col-space clearfix remove-bottom-max-767px">
+
+						<!-- 1/2 page width -->
+						{% if videos %}
+						{% for video in videos %}
+						<div class="one-half columns portfolio-item-preview">
+							<article>
+								<div class="item-picture" data-type="link">
+									<img src="{{ video.content_imageicon.url }}" alt="" style="width:380px;height:208px;">
+									<div class="image-overlay">
+										<a href="single-project.html" title="{{ video.content_title }}"><span class="link"></span></a>
+									</div>
+								</div>
+								<div class="item-description align-center">
+									<a href="single-project.html"><h5 class="title colored-text-1">{{ video.content_title }}</h5></a>
+									<p class="small-font-size">Category: {{ video.content_category }}</p>
+								</div>
+							</article>
+						</div>
+						{% endfor %}
+						{% else %}
+						<strong> Sorry, there are no learning videos present </strong>
+						{% endif %}
+
+
+					</div>
+
+					<!-- end Portfolio Items -->
+					<!-- Start Pagination -->
+					<div class="full-width columns">
+						<hr class="divider-line mb-25px">
+						<nav class="pagination clearfix">
+							<span class="current">1</span>
+							<a href="#" title="Page 2">2</a>
+							<span class="pages">Page 1 of 2</span>
+						</nav>
+					</div>
+					<!-- End Pagination -->
+
+				</section>
+				<!-- end Page Left Column -->
+
+				<!-- Sidebar (right aligned) -->
+				<aside id="sidebar" class="one-fourth columns page-right-col">
+
+					<div class="one-fourth columns  mb-40px"> <!-- Begin right-aligned column -->
+						  {% include 'pally/sidemenu.html' %}
+
+          </div> <!-- end columns-wrapper sb-right -->
+
+				</aside>
+				<!-- end Sidebar -->
+
+
+
+		</div>
+
+	</section>
+	<!-- end Page Content -->
+
+</section>
+
+<!-- END CONTENT -->
+
+{% endblock %}

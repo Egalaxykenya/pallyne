@@ -1,0 +1,132 @@
+{% extends 'pally/base.html' %}
+{% load staticfiles %}
+{% block pally_breadcrumb_block %}
+{{ block.super }}
+{% endblock %}
+
+{% block pally_body_block %}
+<section id="main">
+
+	<!-- Page Title -->
+	<section id="page-title">
+
+
+
+	</section>
+
+	<!-- Page Content -->
+	<section id="page-content">
+
+		<div class="container"> <!-- 1080 pixels Container -->
+
+
+
+			<div class="row">
+
+				<div class="two-thirds columns">
+					<div class="offset-right-20px">
+
+
+						<!-- Datasets -->
+						<div class="announcements mb-40px">
+
+							{% if books %}
+							{% for book in books %}
+
+							<article class="clearfix">
+								<div class="info-box white-bg tight no-border shadow clearfix mb-30px">
+									<div class="width-300px image-left adapted-max-767px remove-bottom">
+										<img src="{{ book.book_imageicon.url }}" alt="" class="scale-with-grid">
+									</div>
+									<div class="offset-right-10px">
+										<h3 class="colored-text-1">{{ book.book_title }}</h3>
+										<p>{{ book.book_description }}</p>
+										<a href="{{ book.buy_booklink.url }}" class="link-sm colored-text-2">Buy Book <span></span></a>
+									</div>
+								</div>
+							</article>
+							{% endfor %}
+							{% else %}
+							<strong> There are no books in the catalogue </strong>
+
+							{% endif %}
+
+
+
+						</div>
+
+						<!-- end datasets -->
+
+					</div>
+
+				</div>
+				<div class="one-fourth columns  mb-40px"> <!-- Begin right-aligned column -->
+					  {% include 'pally/sidemenu.html' %}
+
+				</div>
+				<!-- end side menu -->
+
+				<aside class="one-third columns">
+
+					<div class="info-box mb-30px">
+						<h4 class="mb-15px">Top dataset downloads</h4>
+
+						<!-- begin top datasets -->
+
+						<div class="announcements mb-25px">
+							{% if datasets %}
+							{% for dataset in datasets %}
+							<article class="clearfix">
+								<a href="{{ dataset.dataset_download.url }}"><img src="{{dataset.content_imageicon.url}}" alt=""></a>
+								<div class="preview-text">
+									<a href="{% url 'pally:pallynedatasets' %}"><p class="title tight black">{{dataset.content_title }}</p></a>
+									<span class="light-grey">Downloads: </span>
+								</div>
+							</article>
+							{% endfor %}
+							{% endif %}
+							<article class="clearfix">
+								<a href="#"><img src="{% static "images/post2-preview-70x70.jpg" %}" alt=""></a>
+								<div class="preview-text">
+									<a href="#"><p class="title tight black">Hand Sign Dataset</p></a>
+									<span class="light-grey">Downloads: 20</span>
+								</div>
+							</article>
+							<article class="clearfix">
+								<a href="#"><img src="{% static "images/post3-preview-70x70.jpg" %}" alt=""></a>
+								<div class="preview-text">
+									<a href="#"><p class="title tight black">Road Traffic light dataset</p></a>
+									<span class="light-grey">Downloads: 10</span>
+								</div>
+							</article>
+						</div>
+						<!-- end top datasets -->
+
+
+
+					</div>
+
+				</aside>
+
+			</div>
+			<!-- Start Pagination -->
+			<div class="full-width columns">
+				<hr class="divider-line mb-25px">
+				<nav class="pagination clearfix">
+					<span class="current">1</span>
+					<a href="#" title="Page 2">2</a>
+					<span class="pages">Page 1 of 2</span>
+				</nav>
+			</div>
+			<!-- End Pagination -->
+
+
+		</div> <!-- end 1080 pixels Container -->
+
+	</section>
+	<!-- end Page Content -->
+
+
+</section>
+
+{% endblock %}

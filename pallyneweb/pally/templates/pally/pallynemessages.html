@@ -1,0 +1,11 @@
+
+{% if messages %}
+  <ul class="message-box success closable">
+    {% for message in messages %}
+      <li class="{{ messages.tags }}">
+        {{ message | safe }}
+        <a class="close" href="#" > </a>
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}

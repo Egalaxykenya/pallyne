@@ -1,0 +1,44 @@
+{% extends 'pally/base.html' %}
+
+{% load staticfiles %}
+
+{% block pally_breadcrumb_block %}
+<!-- Page Content -->
+<section id="page-content">
+
+  <div class="container"> <!-- 1080 pixels Container -->
+
+    <div class="row">
+
+      <div class="one-third fixed columns align-right mb-40px mb-max-767px"> <!-- right-aligned column -->
+
+
+            <img src="{% static "images/login.png" %}" alt="" class="scale-with-grid">
+          <span>
+          <a href="{% url 'register' %}" class="link"><h3 class="colored-text-1 mb-20px">Don't have an account? Sign Up</h3></a>
+        </span>
+
+
+      </div>
+
+      <div class="two-thirds adaptive-to-fixed columns">
+
+        <div class="contact-form-wrapper">
+
+          <h3>Logged Out</h3>
+
+
+          <div class="small-bar colored"></div>
+          <p> You have been successfully logged out. You can <a href="{% url "login" %}"> Login again </a></p>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+<!-- end 1080 pixels Container -->
+
+
+</section>
+{% endblock %}
