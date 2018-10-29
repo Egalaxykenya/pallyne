@@ -30,7 +30,7 @@ class UserRegistrationForm(forms.ModelForm):
         email = self.cleaned_data['email']
         if not email:
             raise ValidationError("This field is required")
-        if IchigoJamUser.objects.filter(email=self.cleaned_data['email']).count():
+        if PallyneUser.objects.filter(email=self.cleaned_data['email']).count():
             raise ValidationError("This Email is taken already! ")
         return self.cleaned_data['email']
 
